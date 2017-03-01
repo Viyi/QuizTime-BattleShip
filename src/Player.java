@@ -1,5 +1,5 @@
-
 import java.util.Arrays;
+
 public class Player {
 	private int turn;
 	
@@ -80,13 +80,25 @@ public class Player {
 	
 	public boolean attack(Player p, int x, int y)
 	{
-		
+		y-=1;
 		if(p.recieveAttack(x, y))
 		{
 			enemies[x][y] = 0;
 			return true;
 		}else{
 			enemies[x][y] = 1;
+			return false;
+		}
+	}
+   
+   public boolean recieveAttack(int x, int y)
+	{
+      //y-=1;
+		if(ships[x][y]>1)
+		{
+			ships[x][y] = 0;
+			return true;
+		}else{
 			return false;
 		}
 	}
@@ -120,20 +132,8 @@ public class Player {
 		return row;
 	}
 	
-	public boolean recieveAttack(int x, int y)
-	{
-		if(ships[x][y]>1)
-		{
-			ships[x][y] = 0;
-			return true;
-		}else{
-			return false;
-		}
-	}
-	
-	
 	//Builds the text grid, eventually will implement swing.
-	public String myShips()
+	public String printMe()
 	{
 		String full = "   A B C D E F G H I J";
 		for(int a = 0;a<ships.length;a++)
@@ -153,7 +153,7 @@ public class Player {
 		return full;
 	}
 	
-	public String myEnemy()
+	public String printEnemies()
 	{
 		String full = "   A B C D E F G H I J";
 		for(int a = 0;a<enemies.length;a++)

@@ -1,5 +1,6 @@
 import java.util.Scanner;
 import java.util.Arrays;
+
 public class ShipRunner {
 	public static void main(String[]args)
 	{
@@ -34,8 +35,8 @@ public class ShipRunner {
 		/*
 		System.out.println(p1.getShips());
 		System.out.println(p2.attack(p1, 3, 3));
-		System.out.println(p1.myShips());
-		System.out.println(p2.myEnemy());
+		System.out.println(p1.printMe());
+		System.out.println(p2.printEnemies());
 		
 		*/
 		while (winner <1)
@@ -47,10 +48,10 @@ public class ShipRunner {
 			if(turn == 1)
 			{
 				System.out.println("Player "+ turn + "!");
-				System.out.println(p1.myEnemy());
+				System.out.println(p1.printEnemies());
 				System.out.println("\n\n");
 				
-				System.out.println(p1.myShips());
+				System.out.println(p1.printMe());
 				System.out.println();
 				scan.next();
 				System.out.println("Choose Your Attacking Collumn!");
@@ -67,9 +68,9 @@ public class ShipRunner {
 				
 			}else{
 				System.out.println("Player "+ turn + "!");
-				System.out.println(p2.myEnemy());
+				System.out.println(p2.printEnemies());
 				System.out.println("\n\n");
-				System.out.println(p2.myShips());
+				System.out.println(p2.printMe());
 				
 				scan.next();
 				System.out.println("Choose Your Attacking Collumn!");
