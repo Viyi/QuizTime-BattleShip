@@ -65,7 +65,13 @@ public class ShipRunner {
             {
                System.out.print("\nINCORRECT!");
             }
-            turn = 2;
+            if(p1.checkWinner(p2))
+            {
+               System.out.print("\n\nPLAYER " + turn + " WINS!!!" + "\nGG!!!");
+               winner = 1;
+            }
+            else
+               turn = 2;
 				
 			}else{
             System.out.print("\n\nPlayer "+ turn + "!");
@@ -90,7 +96,13 @@ public class ShipRunner {
             {
                System.out.print("\nINCORRECT!");
             }
-            turn = 1;
+            if(p2.checkWinner(p1))
+            {
+               System.out.print("\n\nPLAYER " + turn + " WINS!!!" + "\nGG!!!");
+               winner = 1;
+            }
+            else
+               turn = 1;
          }
       }
       
