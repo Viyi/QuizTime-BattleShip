@@ -10,15 +10,15 @@ public class ShipRunner {
 		int[][] p1ships = new int[][]{ {1,1,1,1,1,1,1,1,1,1},
 			 {1,1,1,1,1,1,1,1,1,1},
 			 {1,1,1,1,1,1,1,1,1,1},
-			 {1,1,1,3,1,2,2,1,1,1},
 			 {1,1,1,1,1,1,1,1,1,1},
 			 {1,1,1,1,1,1,1,1,1,1},
-			 {1,1,1,1,4,4,4,1,1,1},
 			 {1,1,1,1,1,1,1,1,1,1},
 			 {1,1,1,1,1,1,1,1,1,1},
-			 {1,1,1,1,1,1,1,1,1,1} };
+			 {1,1,1,1,1,1,1,1,1,1},
+			 {1,1,1,1,1,1,1,1,1,1},
+			 {1,1,1,1,1,1,1,3,3,3} };
 			  
-			  int[][] p2ships = new int[][]{ {1,1,1,1,1,1,1,1,1,1},
+			  int[][] p2ships = new int[][]{ {3,3,3,1,1,1,1,1,1,1},
 					 {1,1,1,1,1,1,1,1,1,1},
 					 {1,1,1,1,1,1,1,1,1,1},
 					 {1,1,1,1,1,1,1,1,1,1},
@@ -30,65 +30,69 @@ public class ShipRunner {
 					 {1,1,1,1,1,1,1,1,1,1} };
 		
 		Player p1 = new Player(1, p1ships);
-		Player p2 = new Player(2);
+		Player p2 = new Player(2, p2ships);
+      
+      String[] q = {"1+2=","2+2=","3+2=","4+2="};
+      String[] a = {"3","4","5","6"};
+      Quiz addition = new Quiz(q,a);
 		
-		/*
-		System.out.println(p1.getShips());
-		System.out.println(p2.attack(p1, 3, 3));
-		System.out.println(p1.printMe());
-		System.out.println(p2.printEnemies());
-		
-		*/
 		while (winner <1)
 		{
 			String xa = "";
 			int ya = 0;
 			
-			
 			if(turn == 1)
 			{
-				System.out.println("Player "+ turn + "!");
-				System.out.println(p1.printEnemies());
-				System.out.println("\n\n");
-				
-				System.out.println(p1.printMe());
-				System.out.println();
-				scan.next();
-				System.out.println("Choose Your Attacking Collumn!");
-				xa = scan.next();
-				System.out.println("Choose Your Attacking Row!");
-				ya = scan.nextInt();
-				if(p1.attack(p2, p2.convert(xa), ya))
-				{
-					System.out.println("Hit!");
-				}else{
-					System.out.println("Miss!");
-				}
-				turn = 2;
+            System.out.print("\n\nPlayer "+ turn + "!");
+            if(addition.showTime())
+            {
+               System.out.print("\nCORRECT!");
+				   System.out.print("\n"+p1.printEnemies());
+				   System.out.print("\n\n"+p1.printMe());
+            
+				   System.out.print("\n"+"Choose Your Attacking Collumn!");
+				   xa = scan.next();
+				   System.out.print("Choose Your Attacking Row!");
+				   ya = scan.nextInt();
+				   if(p1.attack(p2, p2.convert(xa), ya))
+				   {
+				   	System.out.print("Hit!\n");
+				   }else{
+				   	System.out.print("Miss!\n");
+				   }
+            }
+            else
+            {
+               System.out.print("\nINCORRECT!");
+            }
+            turn = 2;
 				
 			}else{
-				System.out.println("Player "+ turn + "!");
-				System.out.println(p2.printEnemies());
-				System.out.println("\n\n");
-				System.out.println(p2.printMe());
-				
-				scan.next();
-				System.out.println("Choose Your Attacking Collumn!");
-				xa = scan.next();
-				System.out.println("Choose Your Attacking Row!");
-				ya = scan.nextInt();
-				if(p2.attack(p1, p1.convert(xa), ya))
-				{
-						System.out.println("Hit!");
-					}else{
-						System.out.println("Miss!");
-					}
-				
-					turn = 1;
-				}
-			}
-				
-			
-		}
-	}
-
+            System.out.print("\n\nPlayer "+ turn + "!");
+				if(addition.showTime())
+            {
+               System.out.print("\nCORRECT!");
+				   System.out.print("\n"+p2.printEnemies());
+				   System.out.print("\n\n"+p2.printMe());
+            
+				   System.out.print("\n"+"Choose Your Attacking Collumn!");
+				   xa = scan.next();
+				   System.out.print("Choose Your Attacking Row!");
+				   ya = scan.nextInt();
+				   if(p2.attack(p1, p1.convert(xa), ya))
+				   {
+				   	System.out.print("Hit!\n");
+				   }else{
+				   	System.out.print("Miss!\n");
+				   }
+            }
+            else
+            {
+               System.out.print("\nINCORRECT!");
+            }
+            turn = 1;
+         }
+      }
+      
+   }//ends main
+}//ends class
