@@ -81,9 +81,9 @@ public class ShipRunner {
 				   System.out.print("\n"+p2.printEnemies());
 				   System.out.print("\n\n"+p2.printMe());
             
-				   System.out.print("\n"+"Choose Your Attacking Collumn!");
+				   System.out.print("\n"+"Choose Your Attacking Row!");
 				   xa = scan.next();
-				   System.out.print("Choose Your Attacking Row!");
+				   System.out.print("Choose Your Attacking Collumn!");
 				   ya = scan.nextInt();
 				   if(p2.attack(p1, p1.convert(xa), ya))
 				   {
@@ -105,6 +105,6 @@ public class ShipRunner {
                turn = 1;
          }
       }
-      
+    
    }//ends main
 }//ends class
